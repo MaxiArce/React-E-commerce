@@ -1,8 +1,6 @@
 import React from 'react';
 import { ReactComponent as BrandLogo } from '../images/logo.svg';
-import { ReactComponent as CartIcon } from '../images/cart.svg';
-
-
+import CartWidget from './CartWidget'
 
 const NavBar = () => {
     return (
@@ -46,10 +44,8 @@ const NavBar = () => {
 
                     {/* Cart + Profile */}
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        {/* Cart */}
-                        <button className="bg-white-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                            <CartIcon className="h-6 w-6" />
-                        </button>
+                        {/* Cart Widget */}
+                        <CartWidget/>                        
                         {/* Profile dropdown */}
                         <div className="ml-3 relative">
                             <div>
