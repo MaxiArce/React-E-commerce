@@ -1,10 +1,13 @@
 import React from 'react';
+import ItemCount from './ItemCount';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+
     return(
-        <div className="h-screen">
-            {/* Recibe greeting por prop */}
-            <h1 className="font-bold text-4xl text-center">{greeting}</h1>
+        <div className="flex flex-row">
+            {/* Dos ItemCount de ejemplo uno con el stock y el otro sin */}
+            <ItemCount stock={10} initial={1}/>
+            <ItemCount stock={0} initial={0}/>
         </div>
     )
 }

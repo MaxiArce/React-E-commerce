@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as BrandLogo } from '../images/logo.svg';
+import { ReactComponent as BrandLogo } from '../images/Logo.svg';
 import CartWidget from './CartWidget'
 
 const NavBar = () => {

@@ -6,7 +6,7 @@ const App = () => {
     return (
         <header>
             <NavBar/>
-            <ItemListContainer greeting="Texto temporal"/>
+            <ItemListContainer/>
         </header>
         )
 }
