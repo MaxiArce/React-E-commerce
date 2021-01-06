@@ -21,7 +21,7 @@ const ItemCount = ({stock,initial}) => {
     }
 
     const resetAmount = () => {
-        setCounter(0)
+        setCounter(initial)
     }
     
     const onAdd = () => {
@@ -30,9 +30,8 @@ const ItemCount = ({stock,initial}) => {
 
     
     return(
-        <div className="bg-green-500 rounded-3xl sm:w-1/4 w-1/2 p-4 m-2">
-            <p className="text-xl font-semibold">Titulo Item</p>
-            <p>Precio $0</p>
+        <div className="bg-green-500 rounded-xl sm:w-1/4 w-1/2 p-4 m-2">
+            
             <p>Disponibles: {stock}</p>
 
             {/* Permite agregar/restar el numero de productos teniendo en cuenta el stock  */}
