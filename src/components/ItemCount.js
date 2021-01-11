@@ -30,7 +30,7 @@ const ItemCount = ({stock,initial}) => {
 
     
     return(
-        <div className="bg-green-500 rounded-xl sm:w-1/4 w-1/2 p-4 m-2">
+        <div className="bg-green-500 rounded-xl sm:w-1/2 p-4 sm:m-2 m-4">
             
             <p>Disponibles: {stock}</p>
 

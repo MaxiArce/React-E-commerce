@@ -1,8 +1,6 @@
-import React from 'react';
-import ItemList from './ItemList'
-import ItemDetailContainer from './ItemDetailContainer'
+import React, { useState, useEffect } from "react"
+import ItemDetail from './ItemDetail';
 
-const ItemListContainer = () => {
 
 // Array temporal de productos 
 const productsArray= [
@@ -38,14 +36,38 @@ const productsArray= [
     }
 ];
 
+
+const ItemDetailContainer = () => {
+
+    const [ item, setItem ] = useState();
+
+    //Paso el id del producto de manera manual (proxima entrega usando routing)
+    const itemID = 1;
+
+    useEffect(() => {
+        //promise que devuelve el item despues de 2 segundos
+        const getItems = new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            const item = productsArray.find(element => element.id == itemID)
+            resolve(item)
+            reject("Producto no encontrado")
+        },2000);
+        })
+        .then((result) => {
+            setItem(result)
+        })
+        .catch((reject) =>{
+            console.log(reject)
+        });
+
+    },[itemID]);
+
+    //Si item no esta vacio devuelve un component itemDetail
     return(
         <div>
-            {/* Envia el array por props */}
-            <ItemList items={productsArray}/>
-            {/* De manera temporal hasta la proxima entrega cargo el itemDetail Container aca */}
-            <ItemDetailContainer/>
+            {item? <ItemDetail item={item}/>: <p>Cargando</p>}
         </div>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
