@@ -8,6 +8,7 @@ const ItemDetail = ({item}) => {
             <div className="flex flex-col text-center m-2">
                 <img className="place-self-center w-1/2" src={item.pictureUrl}></img>
                 <p className="font-bold text-2xl">{item.title}</p>
+                <p>{item.category}</p>
                 <p>{item.description}</p>
                 <p>${item.price}</p>
             </div>

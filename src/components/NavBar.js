@@ -1,6 +1,7 @@
 import React from 'react';
-import { ReactComponent as BrandLogo } from '../images/Logo.svg';
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from './CartWidget'
+import { ReactComponent as BrandLogo } from '../images/Logo.svg';
 
 const NavBar = () => {
     return (
@@ -27,20 +28,27 @@ const NavBar = () => {
                     <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex-shrink-0 flex items-center">
                             {/*Logo Desktop */}
-                            <BrandLogo className="block lg:block h-8 w-auto" />
+                            <Link to={`/`}>
+                                 <BrandLogo className="block lg:block h-8 w-auto" />
+                            </Link>
+
                             {/*Logo Mobile */}
-                            <BrandLogo className="hidden lg:hidden h-8 w-auto" />
+                            <Link to={`/`}>
+                                <BrandLogo className="hidden lg:hidden h-8 w-auto" />
+                            </Link>
                         </div>
 
                         {/* NavBar items desktop */}
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
-                                <a href="#" className="navbar__item--active">Home</a>
-                                <a href="#/categorias" className="navbar__item">Catergorias</a>
+                                <Link to={`/`} className="navbar__item--active">Home</Link>    
+                                <Link to={`/categories/cactus`} className="navbar__item">Cactus</Link>    
+                                <Link to={`/categories/suculentas`} className="navbar__item">Suculentas</Link>    
+                                <Link to={`/categories/bonsais`} className="navbar__item">Bonsáis</Link>    
+                                <Link to={`/categories/carnivoras`} className="navbar__item">Carnívoras</Link>  
                             </div>
                         </div>
                     </div>
-
 
                     {/* Cart + Profile */}
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -61,8 +69,11 @@ const NavBar = () => {
             {/* Mobile menu */}
             <div className="block sm:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                    <a href="#" className="navbar-mobile__item--active">Home</a>
-                    <a href="#/categorias" className="navbar-mobile__item">Categorias</a>
+                    <Link to={`/`} className="navbar__item--active">Home</Link>
+                    <Link to={`/categories/cactus`} className="navbar__item">Cactus</Link>    
+                    <Link to={`/categories/suculentas`} className="navbar__item">Suculentas</Link>    
+                    <Link to={`/categories/bonsais`} className="navbar__item">Bonsáis</Link>    
+                    <Link to={`/categories/carnivoras`} className="navbar__item">Carnívoras</Link>  
                 </div>
             </div>
         </nav >
@@ -70,3 +81,4 @@ const NavBar = () => {
 }
 
 export default NavBar
+

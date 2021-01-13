@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react"
 import Item from './Item';
 import { ReactComponent as LoadingSpinner } from '../images/Spinner.svg';
+import { useParams } from "react-router-dom";
 
 const ItemList = ({items}) => {
 
     //setState para cambiar el estado de los procutos 
     const [products, setProducts] = useState([]);
 
-    //useEffect con una promesa con contador de 2seg, devuelve "items recibido por prop" cuando detecta el cambio en products se vuelve a renderizar
+    const categoryId = useParams().categoryId;
+
+    //useEffect con una promesa con contador de 2seg, devuelve items dependiendo si se recibe o no una categoria por useParams
+    
     useEffect(() => {
         const productsPromise = new Promise((resolve,reject) => {
             setTimeout(() => {
-                resolve(items)
+                if(categoryId){
+                    const filterItems = items.filter(element => element.category == categoryId)
+                    console.log(filterItems)
+                    resolve(filterItems)
+                }else{
+                    resolve(items)
+                }
                 reject("No se recibieron productos")
             },2000)
         })
@@ -22,7 +32,7 @@ const ItemList = ({items}) => {
             console.log(reject)
         });
 
-    },[products]);
+    },[products,categoryId]);
 
     
     return(
