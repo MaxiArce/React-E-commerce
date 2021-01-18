@@ -8,7 +8,7 @@ const ItemList = ({items}) => {
     //setState para cambiar el estado de los procutos 
     const [products, setProducts] = useState([]);
 
-    const categoryId = useParams().categoryId;
+    const {categoryId} = useParams();
 
     //useEffect con una promesa con contador de 2seg, devuelve items dependiendo si se recibe o no una categoria por useParams
     
