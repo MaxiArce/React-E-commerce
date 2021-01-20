@@ -47,13 +47,13 @@ const ItemDetailContainer = () => {
     const [ item, setItem ] = useState();
 
     //Paso el id del producto de manera manual (proxima entrega usando routing)
-    const itemID = useParams().id;
+    const {id} = useParams();
 
     useEffect(() => {
         //promise que devuelve el item despues de 2 segundos
         const getItems = new Promise((resolve, reject)=>{
         setTimeout(() => {
-            const item = productsArray.find(element => element.id == itemID)
+            const item = productsArray.find(element => element.id == id)
             resolve(item)
             reject("Producto no encontrado")
         },2000);
@@ -65,7 +65,7 @@ const ItemDetailContainer = () => {
             console.log(reject)
         });
 
-    },[itemID]);
+    },[id]);
 
     //Si item no esta vacio devuelve un component itemDetail
     return(

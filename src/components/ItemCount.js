@@ -13,7 +13,7 @@ const ItemCount = ({ item, substract, add, reset, onAdd, counter, itemCountStatu
             {itemCountStatus
             ?(
                 <div>
-                    <p>Disponibles: {item.stcok}</p>
+                    <p>Disponibles: {item.stock}</p>
                     {/* Permite agregar/restar el numero de productos teniendo en cuenta el stock  */}
                     <div className="flex flex-row items-center mt-4">
                         <button onClick={ substract }>
@@ -30,7 +30,7 @@ const ItemCount = ({ item, substract, add, reset, onAdd, counter, itemCountStatu
 
                     {/* Muestra diferentes botones dependiendo del stock */}
                     {item.stock >0 
-                        ?   <button className="bg-white rounded font-bold p-2 mt-4 w-full" onClick={ () => onAdd(item)}>Agregar a Carrito</button>
+                        ?   <button className="bg-white rounded font-bold p-2 mt-4 w-full" onClick={ () => onAdd(item,counter)}>Agregar a Carrito</button>
                         :   <button className="bg-red-600 rounded font-bold p-2 mt-4 w-full pointer-events-none">Sin Stock</button>
                     }    
                 </div>

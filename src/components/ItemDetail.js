@@ -1,20 +1,20 @@
-import React, {useState, useEffect} from 'react'
-import ItemCount from './ItemCount'
+import React, {useState, useContext} from 'react';
+import ItemCount from './ItemCount';
+import {CartContext} from '../context/CartContext'
 
 const ItemDetail = ({item}) => {
 
+    const {addItem} = useContext(CartContext);
+
     //almacena la cantidad del producto seleccionado
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
 
     //estado para mostrar/ocultar el ItemCount
     const [itemCountStatus, setItemCountStatus] = useState(true)
 
-    //almacena los productos agregados al carrito
-    const [cart, setCart] = useState([])
-
     //si el contador el mayor a 0 permite extraer 1
     const substractAmount = () => {
-        if (counter > 0){
+        if (counter > 1){
             setCounter(counter - 1)
         }
     }
@@ -28,17 +28,17 @@ const ItemDetail = ({item}) => {
 
     //resetea el contador 
     const resetAmount = () => {
-        setCounter(0)
+        setCounter(1)
     }
     
     //se activa cuando se hace click en agregar al carrito (desde itemCount) si la cantidad seleccionada es mayor a 0
-    const onAdd = async({id, title, category, description, price, pictureUrl,stock}) => {
+    const onAdd = (item, counter) => {
         if ( counter > 0){
             console.log("Cantidad Seleccionada: " + counter)
-            console.log(({id,title,category,description,price,pictureUrl,stock}))
-            
-            setCart(...cart,{ id, title, category, description, price, pictureUrl, stock })
-            
+
+            //almacena los productos agregados al carrito usando la funcion del context
+            addItem(item,counter)
+
             //cambia el estado a false para no mostrar mas el boton agregar a carrito
             setItemCountStatus(false)
         }

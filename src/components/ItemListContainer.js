@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 import ItemList from './ItemList'
-import ItemDetailContainer from './ItemDetailContainer'
-
-const ItemListContainer = () => {
 
 // Array temporal de productos 
-// Array temporal de productos 
-const productsArray= [
+const productsArray = [
     {
         id: 1,
         title: "Item 1",
@@ -22,7 +19,7 @@ const productsArray= [
         description: "Descripción 2",
         price: 300,
         pictureUrl: "https://firebasestorage.googleapis.com/v0/b/react-ecommerce-80cbd.appspot.com/o/2.png?alt=media&token=dcdbf1c3-2183-4edd-a55c-589a290c9634",
-        stock: 50   
+        stock: 50
     }, {
         id: 3,
         title: "Item 3",
@@ -43,11 +40,31 @@ const productsArray= [
     }
 ];
 
+const ItemListContainer = () => {
 
-    return(
+    //setState para cambiar el estado de los procutos 
+    const [products, setProducts] = useState([]);
+
+    const { id } = useParams();
+
+    //useEffect con una promesa con contador de 2seg, devuelve items dependiendo si se recibe o no una categoria por useParams
+
+    useEffect(() => {
+
+        if (id) {
+            const filterItems = productsArray.filter(element => element.category === id)
+            setProducts(filterItems)
+        } else {
+            setProducts(productsArray)
+        }
+
+    }, [id, productsArray]);
+
+
+    return (
         <div>
             {/* Envia el array por props */}
-            <ItemList items={productsArray}/>
+            <ItemList items={products} />
         </div>
     )
 }
