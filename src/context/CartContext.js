@@ -36,7 +36,7 @@ function CartProvider( { children }) {
         if (isInCart(item.id)){
             //busca el producto y modifica la cantidad 
             const tempCart = cart.map(Element =>{
-               if(Element.item.id == item.id){
+               if(Element.item.id === item.id){
                    Element.amount = counter
                }
                return Element; 
@@ -57,19 +57,20 @@ function CartProvider( { children }) {
 
     //Creat un nuevo array filtrando el id
     const removeItem = (id) => {
-        const tempCart = cart.filter(Element => Element.id !== id)
+        const tempCart = cart.filter(Element => Element.item.id !== id)
         setCart(tempCart)
     }
 
-    const clear = () => {
+    const clearCart = () => {
         setCart([])
         setQuantity(0)
+        console.log("Cart Cleared")
     }
 
    
     return (
             // Devuelve el custom provider para que cualquiera sea el children pueda acceder a la info
-            <CartContext.Provider value ={{cart, quantity, total, addItem, removeItem, clear, isInCart}}>
+            <CartContext.Provider value ={{cart, quantity, total, addItem, removeItem, clearCart, isInCart}}>
                 { children }
             </CartContext.Provider>
     )

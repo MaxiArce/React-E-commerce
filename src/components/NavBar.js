@@ -1,9 +1,16 @@
-import React from 'react';
-import { Link, NavLink } from "react-router-dom";
+import React ,{useContext} from 'react';
+import { Link } from "react-router-dom";
 import CartWidget from './CartWidget'
 import { ReactComponent as BrandLogo } from '../images/Logo.svg';
+import {CartContext} from '../context/CartContext'
+
 
 const NavBar = () => {
+
+    //uso el CartContext para traer el carrito 
+    const {cart} = useContext(CartContext)
+
+
     return (
 
         < nav className="bg-gray-800" >
@@ -52,8 +59,8 @@ const NavBar = () => {
 
                     {/* Cart + Profile */}
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        {/* Cart Widget */}
-                        <Link to="/cart"><CartWidget/></Link>
+                        {/* Cart Widget - Solo se dibuja si el carrito > 0 */}
+                        {cart.length > 0 && <Link to="/cart"><CartWidget/></Link>}
                         {/* Profile dropdown */}
                         <div className="ml-3 relative">
                             <div>
