@@ -17,7 +17,7 @@ function CartProvider( { children }) {
         //inicializa en 0 el total 
         let total = 0
         //por cada element en el carrito guarda en totalPrice el precio total (precio*cantidad)
-        const totalPrice = cart.map( Element => Element.item.price * Element.amount )
+        const totalPrice = cart.map( Element => Element.price * Element.amount )
         //suma todos los totales
         totalPrice.map( Element => total += Element)
         //guarda el total en el usState
@@ -36,7 +36,7 @@ function CartProvider( { children }) {
         if (isInCart(item.id)){
             //busca el producto y modifica la cantidad 
             const tempCart = cart.map(Element =>{
-               if(Element.item.id === item.id){
+               if(Element.id === item.id){
                    Element.amount = counter
                }
                return Element; 
@@ -44,20 +44,20 @@ function CartProvider( { children }) {
             // hace un set con el nuevo cart
             setCart(tempCart)
         }else{
-            setCart([...cart,{item: item, amount: counter}])
+            setCart([...cart,{ id: item.id, title: item.title, pictureUrl: item.pictureUrl, price: item.price, amount: counter }])
         }
         console.log(cart)
     }
 
     //Verifica que el producto no este en el carrito
     const isInCart = (id) => {
-        const value = cart.find(Element => Element.item.id === id)
+        const value = cart.find(Element => Element.id === id)
         return value?true:false
     }
 
     //Creat un nuevo array filtrando el id
     const removeItem = (id) => {
-        const tempCart = cart.filter(Element => Element.item.id !== id)
+        const tempCart = cart.filter(Element => Element.id !== id)
         setCart(tempCart)
     }
 
