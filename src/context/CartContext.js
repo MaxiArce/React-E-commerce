@@ -46,7 +46,6 @@ function CartProvider( { children }) {
         }else{
             setCart([...cart,{ id: item.id, title: item.title, pictureUrl: item.pictureUrl, price: item.price, amount: counter }])
         }
-        console.log(cart)
     }
 
     //Verifica que el producto no este en el carrito
