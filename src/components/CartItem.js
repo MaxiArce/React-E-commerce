@@ -5,8 +5,6 @@ import { ReactComponent as IconDelete} from '../images/IconDelete.svg'
 
 const CartItem = ({id, title, pictureUrl, price , amount}) => {
 
-    console.log()
-
     const {removeItem} = useContext(CartContext)
 
     return(

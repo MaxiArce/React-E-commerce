@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import {firestore} from '../firebaseConfig';
 import ItemDetail from './ItemDetail';
-import { ReactComponent as LoadingSpinner } from '../images/Spinner.svg';
 
-const ItemDetailContainer = ({items}) => {
+const ItemDetailContainer = () => {
 
     const [ item , setItem ] = useState([]);
     const [itemExist , setItemExist ] = useState (false);

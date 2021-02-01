@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart'
+import CartCheckout from './components/CartCheckout'
 
 const App = () => {
 
@@ -45,6 +46,9 @@ const App = () => {
                         </Route>                        
                         <Route exact path="/cart">
                             <Cart />
+                        </Route>
+                        <Route>
+                            <CartCheckout/>
                         </Route>
                     </Switch>
                 </BrowserRouter>

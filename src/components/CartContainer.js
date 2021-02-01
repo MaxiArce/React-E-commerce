@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import {CartContext} from '../context/CartContext';
+import { Link } from "react-router-dom";
+import { CartContext } from '../context/CartContext';
 import CartItem from '../components/CartItem';
 import { ReactComponent as IconDelete} from '../images/IconDelete.svg'
 
@@ -18,7 +19,9 @@ const CartContainer = () => {
             <button onClick={clearCart}>
                 <IconDelete className="w-8 h-8"/>
             </button>
-            <button className="font-bold bg-yellow-400 rounded p-2 m-5" onClick={() => {console.log(cart)}} >Pagar</button>
+            <Link to={`/checkout`}>
+                <button className="font-bold bg-yellow-400 rounded p-2 m-5">Pagar</button>
+            </Link>
         
         </div>
     )
