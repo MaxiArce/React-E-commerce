@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Transition } from '@headlessui/react'
+import UserIcon from '../images/User.svg'
 
 
 const ProfileWidget = () => {
@@ -9,9 +10,8 @@ const ProfileWidget = () => {
     return (
         <div className="ml-3 relative">
             <div>
-                <button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={() => setProfileIsOpen(!profileIsOpen)} id="user-menu" aria-haspopup="true">
-                    <span className="sr-only">Open user menu</span>
-                    <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="" />
+                <button className="bg-white flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={() => setProfileIsOpen(!profileIsOpen)} id="user-menu" aria-haspopup="true">
+                    <img className="h-6 w-6 rounded-full" src={UserIcon} alt="" />
                 </button>
             </div>
             <Transition

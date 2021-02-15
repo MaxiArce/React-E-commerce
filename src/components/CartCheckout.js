@@ -21,7 +21,7 @@ const CartCheckout = () => {
         //previene que la pagina se recargue cuando se usa el onClick
         e.preventDefault();
 
-        if(emailVerification == 'correct' && emailMatch == 'correct'){
+        if(emailVerification === 'correct' && emailMatch === 'correct'){
             //referencia
             const db = firestore
             const orders = db.collection('orders')
@@ -56,7 +56,7 @@ const CartCheckout = () => {
         if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)){
             setEmailVerification("correct")
             setEmail(mail)
-        }else if(mail == ''){
+        }else if(mail === ''){
             setEmailVerification("empty")
             setEmail("")
         }else{
@@ -67,9 +67,9 @@ const CartCheckout = () => {
 
     //verifica que el correo y la confirmacion coincidan
     function EmailsMatch (mail) {
-        if(email == mail){
+        if(email === mail){
             setEmailMatch("correct")
-        }else if(mail == ''){
+        }else if(mail === ''){
             setEmailMatch("empty")
         }else{
             setEmailMatch("incorrect")
@@ -94,12 +94,12 @@ const CartCheckout = () => {
                                 <div>
                                     <label htmlFor="email-address" className="sr-only">Email</label>
                                     <input type="email" autoComplete="email" onChange={(e) => ValidateEmail(e.target.value)}  required className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 
-                                    placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${emailVerification == 'empty'? "bg-white":""} ${emailVerification == 'correct' ? "bg-green-100":""} ${emailVerification == 'incorrect'? "bg-red-800" : ""}`} placeholder="Email"></input>
+                                    placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${emailVerification === 'empty'? "bg-white":""} ${emailVerification === 'correct' ? "bg-green-100":""} ${emailVerification === 'incorrect'? "bg-red-800" : ""}`} placeholder="Email"></input>
                                 </div>
                                 <div > 
                                     <label htmlFor="email-address" className="sr-only ">Email</label>
                                     <input  type="email" autoComplete="email" onChange={(e) => EmailsMatch(e.target.value)}  required className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 
-                                    placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${emailMatch == 'empty'? "bg-white":""} ${emailMatch == 'correct' ? "bg-green-100":""} ${emailMatch == 'incorrect'? "bg-red-800" : ""}`} placeholder="Confirmar Email"></input>
+                                    placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${emailMatch === 'empty'? "bg-white":""} ${emailMatch === 'correct' ? "bg-green-100":""} ${emailMatch === 'incorrect'? "bg-red-800" : ""}`} placeholder="Confirmar Email"></input>
                                     </div>
                                 <div>
                                     <label htmlFor="phone" className="sr-only">Teléfono</label>

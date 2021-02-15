@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { Transition } from '@headlessui/react'
 import LandingBackground  from '../images/LandingBg.jpg';
 
 

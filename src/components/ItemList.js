@@ -1,6 +1,5 @@
 import React from "react"
 import Item from './Item';
-import { ReactComponent as LoadingSpinner } from '../images/Spinner.svg';
 
 const ItemList = ({items}) => {
     
@@ -14,8 +13,8 @@ const ItemList = ({items}) => {
                 );
             })
             :(
-                <div className="flex flex-col sm:col-span-4 col-span-2 items-center w-full">
-                    <p className="text-center w-full">Cargando Productos...</p>
+                <div className="flex flex-col sm:col-span-5 col-span-2 items-center w-full">
+                    <p className="text-center w-full">No hay productos disponibles en esta categoría</p>
                 </div>
             )}
         </div>

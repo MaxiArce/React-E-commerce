@@ -4,12 +4,8 @@
 @tailwind utilities;
 
 .navbar-mobile__item{
-    @apply text-gray-900 hover:bg-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium
+    @apply text-gray-900 hover:bg-gray-300 hover:text-white block px-3 py-2 text-xl font-medium
 }
-.navbar-mobile__item--active{
-    @apply bg-black text-white block px-3 py-2 rounded-md text-base font-medium
-}
-
 .navbar__item{
     @apply text-gray-900 hover:bg-gray-300 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium
 }
