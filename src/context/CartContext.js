@@ -63,7 +63,6 @@ function CartProvider( { children }) {
     const clearCart = () => {
         setCart([])
         setQuantity(0)
-        console.log("Cart Cleared")
     }
 
    

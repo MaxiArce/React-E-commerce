@@ -6,7 +6,7 @@ import ItemDetail from './ItemDetail';
 const ItemDetailContainer = () => {
 
     const [ item , setItem ] = useState([]);
-    const [itemExist , setItemExist ] = useState (false);
+    const [itemExist , setItemExist ] = useState ();
 
     //Paso el id del producto de manera manual (proxima entrega usando routing)
     const {id} = useParams();
@@ -23,22 +23,26 @@ const ItemDetailContainer = () => {
                 setItemExist(true)
             }
             else{
-                console.log("Item no encontrado")
                 setItemExist(false)
             }
         })
-        console.log(item)
      },[id]);
+
 
     //Si item existe devuelve un component itemDetail
     return(
-        <div>
-            {itemExist
-            ? <ItemDetail item={item}/>
-            :(<div className="flex flex-col sm:col-span-4 col-span-2 items-center w-full">
-                    <p>Producto no encontrado</p>
-            </div>
-            )}
+        <div className="sm:mx-10 sm:py-24 sm:h-screen sm:max-w-8xl ">
+            {itemExist === undefined &&
+                (<div className="flex flex-col sm:col-span-4 col-span-2  w-full">
+                    <p className="text-center w-full">Cargando Producto...</p>
+                </div>)
+            }
+            {itemExist ?
+                (<ItemDetail item={item}/>)
+                :(<div className="flex flex-col sm:col-span-4 col-span-2  w-full">
+                    <p className="text-center w-full">Producto no encontrado</p>
+                </div>)
+            }
         </div>
     )
 }

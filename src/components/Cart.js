@@ -1,4 +1,4 @@
-import React, { useContext ,useState } from 'react';
+import React, { useContext } from 'react';
 import {CartContext} from '../context/CartContext';
 import CartEmptyState from './CartEmptyState';
 import CartContainer from './CartContainer';
@@ -9,7 +9,7 @@ const Cart = () => {
     const {cart} = useContext(CartContext)
 
     return(
-        <div>
+        <div className="w-screen">
             {cart.length > 0 
             ?(<CartContainer/>)
             :(<CartEmptyState/>)

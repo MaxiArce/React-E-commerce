@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import ItemCount from './ItemCount';
+import ItemDescription from './ItemDescription'
 import {CartContext} from '../context/CartContext'
 
 const ItemDetail = ({item}) => {
@@ -34,7 +35,6 @@ const ItemDetail = ({item}) => {
     //se activa cuando se hace click en agregar al carrito (desde itemCount) si la cantidad seleccionada es mayor a 0
     const onAdd = (item, counter) => {
         if ( counter > 0){
-            console.log("Cantidad Seleccionada: " + counter)
 
             //almacena los productos agregados al carrito usando la funcion del context
             addItem(item,counter)
@@ -42,25 +42,23 @@ const ItemDetail = ({item}) => {
             //cambia el estado a false para no mostrar mas el boton agregar a carrito
             setItemCountStatus(false)
         }
-        else{
-            console.log("Selecciona al menos un producto")
-        }
 
     }      
 
 
     return(
-        <div className="bg-green-200 rounded-xl grid sm:grid-cols-2 grid-cols-1 gap-0 m-10 content-center">
-            <div className="flex flex-col text-center m-2">
-                <img className="place-self-center w-1/2" src={item.pictureUrl}></img>
-                <p className="font-bold text-2xl">{item.title}</p>
-                <p>{item.category}</p>
-                <p>{item.description}</p>
-                <p>${item.price}</p>
+        <div className="bg-white rounded-xl grid sm:grid-cols-6 sm:grid-rows-1 grid-rows-2	grid-cols-1 gap-0 h-full content-center overflow-hidden sm:shadow-lg">
+            
+            <div className="flex h-full col-span-3 image-background"  style={{ backgroundImage: `url(${item.pictureUrl})`} }>
             </div>
-            <div className="flex justify-center items-center">
+
+            <div className="flex flex-col items-start col-span-3 space-y-5  h-full sm:p-4 p-4">
+                <h3 className="font-bold text-4xl font-title">{item.title}</h3>
+                <p className="font-semibold text-3xl">${item.price}</p>
+                <p className="text-sm">Disponibles: {item.stock}</p>
                 <ItemCount item={item} initial={0} substract={substractAmount} add={addAmount} reset={resetAmount} onAdd={onAdd}
                 counter = {counter} itemCountStatus={itemCountStatus} />
+                <ItemDescription item={item}></ItemDescription>
             </div>
         </div>
     )

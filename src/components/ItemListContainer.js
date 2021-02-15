@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import ItemList from './ItemList'
+import Landing from './Landing'
 
 
 const ItemListContainer = ({items}) => {
@@ -17,16 +18,17 @@ const ItemListContainer = ({items}) => {
         if (id) {
             //Como paso los items desde app.js uso filter y no .where de firestore
             const filterItems = items.filter(element => element.category === id)
-            setProducts(filterItems)
+            setProducts(filterItems);
         } else {
-            setProducts(items)
+            setProducts(items);
         }
 
     }, [id, items]);
 
 
     return (
-        <div>
+        <div className="">
+            <Landing></Landing>
             {/* Envia el array por props */}
             <ItemList items={products} />
         </div>

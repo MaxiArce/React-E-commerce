@@ -4,18 +4,15 @@ import { Link } from 'react-router-dom';
 const Item = ({item}) => {
 
     return(
-        <div className="p-4 m-2">
-            <div className="bg-green-500 rounded-xl">
+        <button className= "pb-4 rounded-xl shadow-xl">
+            <Link to={"/item/" + item.id}>
                 <img src={item.pictureUrl} className="m-auto"></img>
-                <button className="bg-white p-2 m-2  rounded font-bold">
-                    <Link to={"/item/" + item.id}>Ver Mas</Link>
-                </button>  
-            </div>     
-            <p className="text-xl font-semibold">{item.title}</p>
-            <p>{item.category}</p>
-            <p>{item.description}</p>
-            <p>Precio ${item.price}</p> 
-        </div>
+                <div className="flex flex-row  p-2">
+                    <h3 className="sm:text-lg">{item.title}</h3> 
+                    <p className="text-lg text-center align-middle font-bold ml-auto">${item.price}</p> 
+                </div>
+            </Link>
+        </button>
     )
 }
 
