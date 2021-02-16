@@ -16,7 +16,7 @@ const NavBar = () => {
     return (
 
         < nav className="bg-white fixed top-0 w-full pin-t" >
-            
+
             <div className="max-w-8xl mx-2 sm:px-6 lg:px-8 ">
 
                 <div className="relative flex items-center justify-between h-16">
@@ -42,7 +42,6 @@ const NavBar = () => {
                             <div className="flex justify-end space-x-4">
                                 <NavLink exact to={`/`} className="mr-auto text-2xl font-title pt-1">Blossoming</NavLink>
                                 <DropdownWidget></DropdownWidget>
-                                <NavLink to={`/contact`} className="navbar__item" >Contacto</NavLink>
                             </div>
                         </div>
                     </div>

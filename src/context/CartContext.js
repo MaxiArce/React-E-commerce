@@ -15,7 +15,6 @@ function CartProvider( { children }) {
         }
     }
 
-
     //useState para el array de productos, Cantidad de productos en el carrito(CartWidget), y total a pagar
     const [ cart, setCart ] = useState(savedCart)
     const [ quantity, setQuantity ] = useState(0)
@@ -69,7 +68,7 @@ function CartProvider( { children }) {
         return value?true:false
     }
 
-    //Creat un nuevo array filtrando el id
+    //Crea un nuevo array filtrando el id
     const removeItem = (id) => {
         const tempCart = cart.filter(Element => Element.id !== id)
         setCart(tempCart)

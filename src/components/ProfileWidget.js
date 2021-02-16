@@ -1,10 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Transition } from '@headlessui/react'
 import UserIcon from '../images/User.svg'
+import { Link } from "react-router-dom"
+import { AuthenticationContext } from '../context/AuthenticationContext'
+
 
 
 const ProfileWidget = () => {
 
+    const {isUserLogged, SignOut} = useContext(AuthenticationContext)
+
+    //estado para mostrar u ocultar dropdown
     const [profileIsOpen, setProfileIsOpen] = useState(false)
 
     return (
@@ -23,9 +29,10 @@ const ProfileWidget = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
                 {(ref) => (
-                    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Tu Perfil</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Cerrar Sesión</a>
+                    <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                        {!isUserLogged && <Link to={`/useraccount`}  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Ingresar</Link>}
+                        {isUserLogged && <Link to={`/useraccount`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Tu cuenta</Link>}
+                        {isUserLogged && <button onClick={()=>{SignOut();setProfileIsOpen(!profileIsOpen)}} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Cerrar Sesión</button>}
                     </div>
                 )}
             </Transition>

@@ -4,8 +4,8 @@ import ItemList from './ItemList'
 import Landing from './Landing'
 
 
-const ItemListContainer = ({items}) => {
-    
+const ItemListContainer = ({ items }) => {
+
     //setState para cambiar el estado de los procutos 
     const [products, setProducts] = useState([]);
 
