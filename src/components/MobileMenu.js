@@ -38,13 +38,16 @@ const MobileMenu = () => {
                 {(ref) => (
                     <div className="absolute block sm:hidden w-full">
                         <div className="flex flex-col bg-white px-2 mt-6">
-                            <Link to={`/`} className="navbar-mobile__item">Home</Link>
+                            <Link to={`/`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="block px-3 py-2 text-xl font-medium text-gray-600">Home</Link>
                             <hr></hr>
                             <p className="block px-3 py-2 text-xl font-medium text-gray-600">Categorias</p>
-                            <Link to={`/categories/cactus`} className="navbar-mobile__item">Cactus</Link>
-                            <Link to={`/categories/suculentas`} className="navbar-mobile__item">Suculentas</Link>
-                            <Link to={`/categories/bonsais`} className="navbar-mobile__item">Bonsáis</Link>
-                            <Link to={`/categories/carnivoras`} className="navbar-mobile__item">Carnívoras</Link>
+                            <Link to={`/categories/cactus`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Cactus</Link>
+                            <Link to={`/categories/suculentas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Suculentas</Link>
+                            <Link to={`/categories/bonsais`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Bonsáis</Link>
+                            <Link to={`/categories/carnivoras`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Carnívoras</Link>
+                            <Link to={`/categories/crasas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Crasas</Link>
+                            <hr></hr>
+                            <Link to={`/categories/contact`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="block px-3 py-2 text-xl font-medium text-gray-600">Contacto</Link>
                         </div>
                     </div>
                 )}

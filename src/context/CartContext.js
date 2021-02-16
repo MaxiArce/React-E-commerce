@@ -6,11 +6,23 @@ export const CartContext = React.createContext();
 //Custom Provider
 function CartProvider( { children }) {
     
+    //verifica si el localStorage esta vacio o no 
+    const savedCart = () => {
+        if (window.localStorage.getItem("SavedCart") != null){
+            return JSON.parse(localStorage.getItem("SavedCart"))
+        }else{
+            return []
+        }
+    }
+
+
     //useState para el array de productos, Cantidad de productos en el carrito(CartWidget), y total a pagar
-    const [ cart, setCart ] = useState([])
+    const [ cart, setCart ] = useState(savedCart)
     const [ quantity, setQuantity ] = useState(0)
     const [ total, setTotal ] = useState()
 
+
+   
     // UseEffect con depencia a cart
     useEffect(() => {
 
@@ -28,9 +40,12 @@ function CartProvider( { children }) {
 
         setQuantity(cartQuantity)
 
+        //guarda el carrito luego de cada modificación
+        localStorage.setItem("SavedCart",JSON.stringify(cart))
+
     }, [cart])
 
-    
+
     const addItem = (item, counter) => {
         //si existe modifica la cantidad 
         if (isInCart(item.id)){

@@ -5,7 +5,6 @@ import { ReactComponent as BrandLogo } from '../images/Logo.svg';
 import { CartContext } from '../context/CartContext'
 import DropdownWidget from './CategoriesDropdown';
 import ProfileWidget from './ProfileWidget';
-import MenuMobile from './MobileMenu'
 import MobileMenu from './MobileMenu';
 
 

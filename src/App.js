@@ -15,6 +15,7 @@ const App = () => {
 
 
     useEffect(() => {
+        
         //llamo a firebase para pedir la colección "items"
         const db = firestore
         const collection = db.collection('items')
