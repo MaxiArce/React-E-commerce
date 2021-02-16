@@ -24,4 +24,5 @@ Live Web : https://react-ecommerce-80cbd.web.app/
 Correr los siguientes comando en terminal (dentro del directorio raíz del proyecto)  
   
 > npm install 
+> 
 > npm start run
