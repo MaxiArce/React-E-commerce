@@ -28,6 +28,6 @@ Final project of the ReactJs course for [CoderHouse](https://www.coderhouse.es/)
 
 ## Build/Run
 
-npm install
-npm start run
+* npm install
+* npm start run
 
