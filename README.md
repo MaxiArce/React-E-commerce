@@ -1,28 +1,33 @@
-# Proyecto Final Arce Maximiliano - Camada 8920 CoderHouse  
-Ecommerce de venta de plantas.  
-  
-En el estado actual el proyecto le permite al usuario:  
-- Registrarse/ Iniciar sesion.  
-- Ver Productos por categorías.  
-- Agregar productos al carrito. 
-- Comprar como invitado. 
-- Agregar favoritos. 
-  
-Live Web : https://react-ecommerce-80cbd.web.app/  
-  
-  
-# Librerías utilizadas:  
-  
-  
-- Taildwind  CSS : https://tailwindcss.com/docs
-- React  Router  Dom : https://reactrouter.com/web/guides/quick-start
+<h1 align="center">Blossoming - Ecommerce of plants</h1>
 
-*Para la instalación de TailwindCSS se requiere el uso de Craco* :https://github.com/gsoft-inc/craco
+<p align="center">
+  <img src="/assets/blossoming.png" />
+</p>
 
+## About
 
-# Para inicial el proyecto:  
-Correr los siguientes comando en terminal (dentro del directorio raíz del proyecto)  
-  
-> npm install 
-> 
-> npm start run
+Final project of the ReactJs course for [CoderHouse](https://www.coderhouse.es/).
+
+## Demo
+
+[Live Demo](https://react-ecommerce-80cbd.web.app/)
+
+## Features
+
+* Register / Login.
+* View products by category.
+* Add products to cart.
+* Shop as a guest.
+* Add Favorites.
+
+## Built using
+
+* React
+* Taildwind CSS
+* React Router Dom
+
+## Build/Run
+
+npm install
+npm start run
+
