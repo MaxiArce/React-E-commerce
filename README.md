@@ -25,6 +25,7 @@ Final project of the ReactJs course for [CoderHouse](https://www.coderhouse.es/)
 * React
 * Taildwind CSS
 * React Router Dom
+* Firebase (Authentication & Cloud Firestore)
 
 ## Build/Run
 
