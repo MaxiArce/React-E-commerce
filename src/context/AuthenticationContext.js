@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { firestore, auth } from '../firebaseConfig';
 
 
-// Declaro el context 
+//Context
 export const AuthenticationContext = React.createContext();
 
 //Custom Provider
@@ -12,10 +12,10 @@ function AuthProvider({ children }) {
     const [currentUser, setcurrentUser] = useState()
     const [userFavItems, setUserFavIems] = useState([])
 
-    // Verifica el estado de la sesión
+    // Verify session status
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            setIsUserLogged(true)
+            setIsUserLogged(true) 
         } else {
             setIsUserLogged(false)
         }
@@ -28,8 +28,6 @@ function AuthProvider({ children }) {
         }
     }, [isUserLogged])
 
-
-    //Crea usuario 
     const createUser = (name, phone, email, password) => {
 
         auth.createUserWithEmailAndPassword(email, password)
@@ -38,27 +36,26 @@ function AuthProvider({ children }) {
                 SaveUserInfo(name, phone, email, uid)
             })
             .catch((error) => {
-                alert("Se produjo un error, intentalo de nuevo mas tarde")
+                alert("An error occurred, please try again later.")
             });
 
     }
+
     const LogUser = (email, password) => {
 
         auth.signInWithEmailAndPassword(email, password)
             .then((user) => {
-
             })
             .catch((error) => {
-                alert("Se produjo un error, intentalo de nuevo mas tarde")
+                alert("An error occurred, please try again later.")
             });
 
     }
 
 
-    // Guarda la informacion del usuario en la coleccion users
+    // Stores user information in the users collection
     const SaveUserInfo = (name, phone, email, uid) => {
 
-        //nuevo objeto user
         const newUser = {
             name: name,
             phone: phone,
@@ -66,26 +63,22 @@ function AuthProvider({ children }) {
             favItems: []
         }
 
-        //referencia
         const db = firestore
         const users = db.collection('users')
 
-        //envia el usuario a firebase , usa el uid como id
+        //send the user to firebase , use the uid as id
         users.doc(uid).set(newUser)
             .then(() => {
             })
             .catch((error) => {
-                alert("Se produjo un error, intentalo de nuevo mas tarde")
+                alert("An error occurred, please try again later")
                 console.log(error)
             })
     }
 
-
     const GetUser = () => {
 
         const currentUserID = auth.currentUser.uid
-
-        //llamo a firebase para pedir el usuario
         const db = firestore
         const collection = db.collection('users').doc(currentUserID)
         const query = collection.get()
@@ -110,7 +103,6 @@ function AuthProvider({ children }) {
         const collection = db.collection('users').doc(currentUserID)
         const query = collection.get()
 
-        //Consulta los favoritos del usuario
         query
             .then((result) => {
                 setUserFavIems(result.data().favItems)
@@ -122,20 +114,13 @@ function AuthProvider({ children }) {
 
     const addFavItem = (itemId) => {
 
-        //current user
         const currentUserID = auth.currentUser.uid
-
-        //nuevo item
         const newFavItem = itemId
-
-        //array temporal de items favoritos  
         let favItemsArray = []
-
         const db = firestore
         const collection = db.collection('users').doc(currentUserID)
         const query = collection.get()
 
-        //Consulta los favoritos del usuario
         query
             .then((result) => {
                 favItemsArray = (result.data().favItems)
@@ -148,7 +133,7 @@ function AuthProvider({ children }) {
                         .then(() => {
                         })
                         .catch((error) => {
-                            alert("Se produjo un error, intentalo de nuevo mas tarde")
+                            alert("An error occurred, please try again later")
                             console.log(error)
                         })
                 } else {

@@ -10,7 +10,7 @@ import MobileMenu from './MobileMenu';
 
 const NavBar = () => {
 
-    //uso el CartContext para traer el carrito 
+    //use the CartContext to fetch the cart 
     const { cart } = useContext(CartContext)
 
     return (
@@ -48,7 +48,7 @@ const NavBar = () => {
 
                     {/* Cart + Profile */}
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        {/* Cart Widget - Solo se dibuja si el carrito > 0 */}
+                        {/* Cart Widget - Only drawn if the cart > 0 */}
                         {cart.length > 0 && <Link to="/cart"><CartWidget /></Link>}
                         <ProfileWidget></ProfileWidget>
                     </div>

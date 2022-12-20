@@ -5,7 +5,7 @@ import CartContainer from './CartContainer';
 
 const Cart = () => {
 
-    //uso el CartContext para traer funciones y variables necesarias
+//use the CartContext to fetch necessary functions and variables
     const {cart} = useContext(CartContext)
 
     return(

@@ -40,14 +40,14 @@ const MobileMenu = () => {
                         <div className="flex flex-col bg-white px-2 mt-6">
                             <Link to={`/`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="block px-3 py-2 text-xl font-medium text-gray-600">Home</Link>
                             <hr></hr>
-                            <p className="block px-3 py-2 text-xl font-medium text-gray-600">Categorias</p>
+                            <p className="block px-3 py-2 text-xl font-medium text-gray-600">Categories</p>
                             <Link to={`/categories/cactus`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Cactus</Link>
-                            <Link to={`/categories/suculentas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Suculentas</Link>
-                            <Link to={`/categories/bonsais`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Bonsáis</Link>
-                            <Link to={`/categories/carnivoras`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Carnívoras</Link>
-                            <Link to={`/categories/crasas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Crasas</Link>
+                            <Link to={`/categories/suculentas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Succulents</Link>
+                            <Link to={`/categories/bonsais`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Bonsai trees</Link>
+                            <Link to={`/categories/carnivoras`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Carnivorous</Link>
+                            <Link to={`/categories/crasas`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="navbar-mobile__item">Crassas</Link>
                             <hr></hr>
-                            <Link to={`/categories/contact`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="block px-3 py-2 text-xl font-medium text-gray-600">Contacto</Link>
+                            <Link to={`/categories/contact`} onClick={() => setDropdownIsOpen(!dropdownIsOpen)} className="block px-3 py-2 text-xl font-medium text-gray-600">Contact</Link>
                         </div>
                     </div>
                 )}

@@ -19,7 +19,7 @@ const FavItems = () => {
 
     const getFavItems = () =>{
                 
-        //trae cada favorito desde firestore
+        //get favs from firestore
         userFavItems.map( element =>{
 
             const query = firestore.collection('items').doc(element).get()
@@ -37,7 +37,7 @@ const FavItems = () => {
 
     return (
         <div className=" font-bold rounded mt-8 bg-gray-200">
-            <h4 className="text-2xl text-black">Favoritos</h4>
+            <h4 className="text-2xl text-black">Favorites</h4>
             {favItems.length > 0 
             ? favItems.map( e=>{
                 return (
@@ -48,7 +48,7 @@ const FavItems = () => {
                 )
             })
             :(
-                <p className="text-center w-full">No hay favoritos</p>
+                <p className="text-center w-full">No favorites</p>
             )}
         </div>
     )

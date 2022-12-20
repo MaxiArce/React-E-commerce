@@ -21,23 +21,23 @@ const ItemDescription = ({item}) => {
         <div className="">
             <div className="grid grid-cols-3">
                 <div>
-                    <h4 className=" font-semibold my-4">Agua</h4>
+                    <h4 className=" font-semibold my-4">Water</h4>
                     <div className="flex flex-row space-x-2">
                         {water}
                     </div>
                 </div>
                 <div>
-                    <h4 className=" font-semibold my-4">Luz</h4>
+                    <h4 className=" font-semibold my-4">Light</h4>
                     <div className="flex flex-row space-x-2">
                         {light}
                     </div>
                 </div>
                 <div>
-                    <h4 className=" font-semibold my-4">Cuidado</h4>
+                    <h4 className=" font-semibold my-4">Care</h4>
                     <p className="inline-block font-bold bg-black rounded text-center text-white p-1">{item.care}</p>
                 </div>
             </div>
-            <h4 className=" font-semibold mt-6 mb-2">Descripción</h4>
+            <h4 className=" font-semibold mt-6 mb-2">Description</h4>
             <p>{item.description}</p>
 
         </div>
